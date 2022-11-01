@@ -1,0 +1,82 @@
+{
+  "tareas": [
+    {
+      "id": 4,
+      "fecha": "2022-10-30T18:59:13.163Z",
+      "titulo": "titulosd",
+      "obraSocial": "APOS"
+    },
+    {
+      "id": 9,
+      "fecha": "2022-10-31T22:34:37.823Z",
+      "titulo": "SSSS",
+      "obraSocial": "APOS"
+    },
+    {
+      "id": 11,
+      "titulo": "German",
+      "fecha": "2022-10-06",
+      "obraSocial": "APOS"
+    },
+    {
+      "id": 13,
+      "fecha": "2022-10-28T18:48:48.127Z",
+      "titulo": "Enzo",
+      "obraSocial": "SANCOR"
+    },
+    {
+      "id": 14,
+      "titulo": "23",
+      "fecha": "2022-10-14",
+      "obraSocial": "sd"
+    },
+    {
+      "id": 15,
+      "titulo": "aaaaaa",
+      "fecha": "2022-10-14",
+      "obraSocial": "SANNN"
+    },
+    {
+      "id": 16,
+      "titulo": "Lisandro",
+      "fecha": "2020-11-29",
+      "obraSocial": "APOS"
+    },
+    {
+      "id": 17,
+      "titulo": "asd",
+      "fecha": "2022-10-14",
+      "obraSocial": "SANCOR"
+    },
+    {
+      "id": 18,
+      "titulo": "sdsdds",
+      "fecha": "2022-10-18",
+      "obraSocial": "APOS"
+    },
+    {
+      "id": 19,
+      "titulo": "jua",
+      "fecha": "0003-03-30",
+      "obraSocial": "NO TIENE O.S."
+    },
+    {
+      "id": 20,
+      "titulo": "Sabrina",
+      "fecha": "2002-12-11",
+      "obraSocial": "SANCOR"
+    },
+    {
+      "id": 21,
+      "titulo": "SSSS",
+      "fecha": "2022-10-07",
+      "obraSocial": "SANCOR"
+    },
+    {
+      "id": 22,
+      "titulo": "ssss",
+      "fecha": "2022-10-12",
+      "obraSocial": "SANCOR"
+    }
+  ]
+}

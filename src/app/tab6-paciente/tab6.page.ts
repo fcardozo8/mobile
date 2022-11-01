@@ -1,36 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { TareaService } from '../service/tarea.service';
-import { Tarea } from 'src/app/models/tarea';
+import { PacienteService } from '../service/paciente.service';
+import { Paciente } from 'src/app/models/paciente';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-tab6',
+  templateUrl: 'tab6.page.html',
+  styleUrls: ['tab6.page.scss']
 })
-export class Tab2Page  implements OnInit{
+export class Tab6Page  implements OnInit{
 
-  tareas: Tarea[] = [];
+  pacientes: Paciente[] = [];
 
-  constructor(private tareaService: TareaService, private router: Router,public alertController: AlertController) {
-    tareaService.getAllTareas().subscribe((resp: Tarea[])=>{
-      this.tareas = resp;
+  constructor(private pacienteService: PacienteService, private router: Router,public alertController: AlertController) {
+    pacienteService.getAllPacientes().subscribe((resp: Paciente[])=>{
+      this.pacientes = resp;
     });
-    console.log(this.tareas);
+    console.log(this.pacientes);
   }
 
   ngOnInit(): void {
-    this.tareaService.getTareabyId(4).subscribe((Tarea)=>(this.tareas));
+    this.pacienteService.getPacientebyId(4).subscribe((Paciente)=>(this.pacientes));
   }
-  agregarTarea(nombre:string, edad:string, obraSocial:string){
+  agregarPaciente(nombre:string, edad:string, obraSocial:string, sexo:string,dni:string){
     console.log("Agregar");
-    let TareaA= new Tarea(Tarea.utlimo_id,new Date(),nombre,obraSocial)
-    this.tareaService.addTarea(TareaA).subscribe((Tarea)=>this.tareas.push(Tarea))
+    let PacienteA= new Paciente(Paciente.utlimo_id,new Date(),nombre,obraSocial,sexo,edad,dni)
+    this.pacienteService.addPaciente(PacienteA).subscribe((Paciente)=>this.pacientes.push(Paciente))
     }
   
-  eliminarTarea(id:number){
+  eliminarPaciente(id:number){
   console.log(id);
       const alert = this.alertController.create({
       cssClass: 'my-custom-class',
@@ -59,23 +59,23 @@ export class Tab2Page  implements OnInit{
       
     }).then((resp)=>{
     if (resp.isConnected){
-      this.tareaService.deleteTarea(id).subscribe(()=>{
-        this.tareaService.getAllTareas().subscribe((resp: Tarea[])=>{
-          this.tareas = resp;
+      this.pacienteService.deletePaciente(id).subscribe(()=>{
+        this.pacienteService.getAllPacientes().subscribe((resp: Paciente[])=>{
+          this.pacientes = resp;
         })
       })
     }
   })
   
   }
-  modificarTarea(id: number, titulox: string, obraSocial2:string){
-      let elementIndex = this.tareas.findIndex((obj => obj.id == id));
+  modificarPaciente(id: number, titulox: string, obraSocial2:string,sexo:string,edad_string,dni:string){
+      let elementIndex = this.pacientes.findIndex((obj => obj.id == id));
       console.log(elementIndex);
-      this.tareas[elementIndex].titulo = titulox;
-      this.tareas[elementIndex].obraSocial=obraSocial2;
+      this.pacientes[elementIndex].titulo = titulox;
+      this.pacientes[elementIndex].obraSocial=obraSocial2;
     }
   
-  async prepararModificar(id:number , titulo: string, obraSocial:string){
+  async prepararModificar(id:number , titulo: string, obraSocial:string, sexo:string,edad:string,dni:string){
 
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -116,13 +116,13 @@ export class Tab2Page  implements OnInit{
           handler: (value) => {  
             
 
-              this.modificarTarea(id,titulo,value);
+              this.modificarPaciente(id,titulo,value,sexo,edad,dni);
               obraSocial=value
-              let TareaM2= new Tarea(id,new Date(),titulo,obraSocial)
-              this.tareaService.updateTarea(id,TareaM2).subscribe(()=>{
+              let PacienteM2= new Paciente(id,new Date(),titulo,obraSocial,sexo,edad,dni)
+              this.pacienteService.updatePaciente(id,PacienteM2).subscribe(()=>{
               } )
             console.log('Confirm Ok');
-            this.modificar2(id,titulo,obraSocial);
+            this.modificar2(id,titulo,obraSocial,sexo,edad,dni);
             
           }
         }
@@ -135,7 +135,7 @@ export class Tab2Page  implements OnInit{
       
   */
     
-  async modificar2(id:number , titulo: string, obraSocial:string){
+  async modificar2(id:number , titulo: string, obraSocial:string,sexo:string,edad:string,dni:string){
     const alert = await this.alertController.create({
       header: "Nombre y Apellido",
       message: "Introduce el nombre del paciente",
@@ -158,10 +158,10 @@ export class Tab2Page  implements OnInit{
           role: "ok",
           cssClass: "add-t-button",
           handler: (placeholder) => {
-            this.modificarTarea(id,placeholder.result,obraSocial);
+            this.modificarPaciente(id,placeholder.result,obraSocial,sexo,edad,dni);
             titulo=placeholder.result
-            let TareaM= new Tarea(id,new Date(),titulo,obraSocial)
-            this.tareaService.updateTarea(id,TareaM).subscribe(()=>{
+            let PacienteM= new Paciente(id,new Date(),titulo,obraSocial,sexo,edad,dni)
+            this.pacienteService.updatePaciente(id,PacienteM).subscribe(()=>{
             } )
           }
         },
