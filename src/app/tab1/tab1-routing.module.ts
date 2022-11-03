@@ -22,7 +22,12 @@ const routes: Routes = [
     {
       path: 'tab6-paciente',
       loadChildren: () => import('../tab6-paciente/tab6.module').then(m => m.Tab6PageModule)
-    }
+    },
+    {
+      path: 'modal',
+      loadChildren: () => import('../pages/modal/modal.module').then( m => m.ModalPageModule)
+    },
+
     ]
   }
 ];
