@@ -1,23 +1,27 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Registro Paciente en lista
+    <ion-title> 
+      Modificar Paciente
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-list lines="full">
-    <form [formGroup]="formulario" (ngSubmit)="formSubmit()">
+    <form [formGroup]="formulario" >
+      <ion-item>
+        <ion-label position="floating">id</ion-label>
+        <ion-input type="text" class="form-control" formControlName="id" > </ion-input>
+
+      </ion-item>
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
-  
+
       </ion-item>
-  
+
       <ion-item>
         <ion-label position="floating">Fecha</ion-label>
-  
+
         <ion-input type="date" class="form-control"  formControlName="fecha"> </ion-input>
       </ion-item>
       <ion-item>
@@ -31,15 +35,10 @@
           <ion-select-option value="NO TIENE O.S.">Ninguna</ion-select-option>
         </ion-select> 
       </ion-item>
+      
       <ion-item>
-        <ion-label position="floating">Edad</ion-label>
-        <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
-  
-      </ion-item>
-      <ion-item>
+      <ion-label position="floating">Sexo</ion-label>
 
-        <ion-label position="floating">Sexo</ion-label>
-  
         <ion-select class="form-select"  formControlName="obraSocial"> 
           <ion-select-option value="" disabled selected >Sexo...</ion-select-option>
           <ion-select-option value="Masculino">Masculino</ion-select-option>
@@ -48,17 +47,22 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Edad</ion-label>
-        <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
-  
+        <ion-input type="text" class="form-control" formControlName="edad" > </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Dni</ion-label>
+        <ion-input type="text" class="form-control" formControlName="dni" > </ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button type="submit" color="success" expand="block" >Registrar</ion-button>
+          <ion-button type="submit" color="secondary" expand="block" (click)="updatePaciente()" >Modificar</ion-button>
         </ion-col>
       </ion-row>
-  
+
     </form>
 
-  
+
+
     </ion-list>
 </ion-content>
+

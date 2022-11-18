@@ -32,10 +32,19 @@ const routes: Routes = [
         loadChildren: () => import('../tab6-paciente/tab6.module').then(m => m.Tab6PageModule)
       },
       {
+        path: 'tab7-paciente',
+        loadChildren: () => import('../tab7-paciente/tab7.module').then(m => m.Tab7PageModule)
+      },    
+      {
+        path: 'tab8-modificar',
+        loadChildren: () => import('../tab8-modificar/tab8.module').then(m => m.Tab8PageModule)
+      },
+      {
         path: 'modal',
         loadChildren: () => import('../pages/modal/modal.module').then( m => m.ModalPageModule)
     
       }, 
+      
       {
         path: '',
         redirectTo: '/tabs/tab1',

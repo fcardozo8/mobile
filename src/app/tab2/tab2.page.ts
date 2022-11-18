@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -24,7 +25,7 @@ export class Tab2Page  implements OnInit{
   ngOnInit(): void {
     this.tareaService.getTareabyId(4).subscribe((Tarea)=>(this.tareas));
   }
-  agregarTarea(nombre:string, edad:string, obraSocial:string){
+  agregarTarea(nombre:string, edad:string, obraSocial:string, sexo:string, dni:string){
     console.log("Agregar");
     let TareaA= new Tarea(Tarea.utlimo_id,new Date(),nombre,obraSocial)
     this.tareaService.addTarea(TareaA).subscribe((Tarea)=>this.tareas.push(Tarea))
@@ -75,7 +76,7 @@ export class Tab2Page  implements OnInit{
       this.tareas[elementIndex].obraSocial=obraSocial2;
     }
   
-  async prepararModificar(id:number , titulo: string, obraSocial:string){
+  async prepararModificar(id:number , titulo: string, obraSocial:string, sexo:string,edad:string,dni:string){
 
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -122,7 +123,7 @@ export class Tab2Page  implements OnInit{
               this.tareaService.updateTarea(id,TareaM2).subscribe(()=>{
               } )
             console.log('Confirm Ok');
-            this.modificar2(id,titulo,obraSocial);
+            this.modificar2(id,titulo,obraSocial,sexo,edad,dni);
             
           }
         }
@@ -135,10 +136,10 @@ export class Tab2Page  implements OnInit{
       
   */
     
-  async modificar2(id:number , titulo: string, obraSocial:string){
+  async modificar2(id:number , titulo: string, obraSocial:string,dni:string,sexo:string,edad:string){
     const alert = await this.alertController.create({
       header: "Nombre y Apellido",
-      message: "Introduce el nombre del paciente",
+      message: "Introduce el nombre del tarea",
       inputs:[
         {
           name: 'result',

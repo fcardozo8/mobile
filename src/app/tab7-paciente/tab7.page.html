@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Registro Paciente en lista
+      Registro Paciente 
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,7 @@
   <ion-list lines="full">
     <form [formGroup]="formulario" (ngSubmit)="formSubmit()">
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
+        <ion-label position="floating">Nombre y Apellido</ion-label>
         <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
   
       </ion-item>
@@ -31,16 +31,11 @@
           <ion-select-option value="NO TIENE O.S.">Ninguna</ion-select-option>
         </ion-select> 
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Edad</ion-label>
-        <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
-  
-      </ion-item>
-      <ion-item>
 
-        <ion-label position="floating">Sexo</ion-label>
-  
-        <ion-select class="form-select"  formControlName="obraSocial"> 
+      <ion-item>
+      <ion-label position="floating">Sexo</ion-label>
+
+        <ion-select class="form-select"  formControlName="sexo"> 
           <ion-select-option value="" disabled selected >Sexo...</ion-select-option>
           <ion-select-option value="Masculino">Masculino</ion-select-option>
           <ion-select-option value="Femenino">Femenino</ion-select-option>
@@ -48,9 +43,14 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Edad</ion-label>
-        <ion-input type="text" class="form-control" formControlName="titulo" > </ion-input>
-  
+        <ion-input type="text" class="form-control" formControlName="edad" > </ion-input>
       </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Dni</ion-label>
+        <ion-input type="text" class="form-control" formControlName="dni" > </ion-input>
+      </ion-item>
+
       <ion-row>
         <ion-col>
           <ion-button type="submit" color="success" expand="block" >Registrar</ion-button>

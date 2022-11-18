@@ -26,7 +26,16 @@ const routes: Routes = [
     {
       path: 'modal',
       loadChildren: () => import('../pages/modal/modal.module').then( m => m.ModalPageModule)
+    },  
+    {
+      path: 'tab8-modificar',
+      loadChildren: () => import('../tab8-modificar/tab8.module').then(m => m.Tab8PageModule)
     },
+    {
+      path: 'tab7-paciente',
+      loadChildren: () => import('../tab7-paciente/tab7.module').then(m => m.Tab7PageModule)
+    },
+    
 
     ]
   }

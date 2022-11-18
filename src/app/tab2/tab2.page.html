@@ -1,34 +1,38 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Listado de Pacientes
+      Listado de Pacientes en espera
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-list >
-  <ion-list class="list-group-item" *ngFor="let x of tareas">
+  <ion-item-sliding  *ngFor="let x of tareas">
+  <ion-list >
     <ion-item>
       <div>
           <img class="float-start bg-secondary rounded-circle text-white p-2 me-3"
           style="width: 48px"
           src="https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824144_960_720.png">
   
-  
           <div class="fw-bold">{{x.titulo}} - {{x.obraSocial}}<br class="text center">Orden: {{x.id}}
           </div>
-          <ion-button class="btn btn-danger display-5  float-end mt-3" color="danger"(click)="eliminarTarea(x.id!)">
+
+          <ion-button class="btn btn-danger display-5  float-end mt-3" color="danger"(click)="eliminarPaciente(x.id!)">
             Eliminar
         </ion-button>
   
-        <ion-button class="btn btn-info display-5 float-end mt-3" (click)="prepararModificar(x.id!,x.titulo,x.obraSocial)">
+        <ion-button class="btn btn-info display-5 float-end mt-3" (click)="prepararModificar(x.id!,x.titulo,x.obraSocial,x.dni,x.sexo,x.edad)">
           Editar
       </ion-button>
           <p>Horario de llegada:{{x.fecha | date : "HH:MM"}}hs</p>
       </div>
     </ion-item>
+
+
   </ion-list>
   <li *ngIf="tareas.length===0" class="list-group-item text-center fw-bold">
     No hay Pacientes en espera
   </li>
+</ion-item-sliding>
 </ion-list>
